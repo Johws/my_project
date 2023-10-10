@@ -35,6 +35,7 @@ class Login extends StatelessWidget {
                 ),
               ),
               child: TextField(
+                key: const Key('login'),
                 controller: _loginController,
                 decoration: InputDecoration(
                   labelText: 'Login',
@@ -55,6 +56,7 @@ class Login extends StatelessWidget {
                 ),
               ),
               child: TextField(
+                key: const Key('password'),
                 controller: _senhaController,
                 decoration: InputDecoration(
                   labelText: 'Senha',
@@ -67,6 +69,7 @@ class Login extends StatelessWidget {
 
             // Botão para ir para a tela de Lista de Tarefas
             ElevatedButton(
+              key: const Key('confirm'),
               onPressed: () {
                 final login = _loginController.text;
                 final senha = _senhaController.text;
