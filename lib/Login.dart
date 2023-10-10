@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:my_project/ListaTarefas.dart';
 
 class Login extends StatelessWidget {
+  final _loginController = TextEditingController();
+  final _senhaController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,66 +20,75 @@ class Login extends StatelessWidget {
             Container(
               child: Icon(
                 Icons.person,
-                size: 48.0, // Tamanho do ícone
-                color: Color.fromARGB(255, 64, 5, 71), // Cor do ícone
+                size: 48.0,
+                color: Color.fromARGB(255, 64, 5, 71),
               ),
             ),
             // Campo de entrada para login
             Container(
-              margin: EdgeInsets.symmetric(
-                  vertical: 10), // Espaçamento vertical entre os campos
+              margin: EdgeInsets.symmetric(vertical: 10),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30.0), // Borda arredondada
+                borderRadius: BorderRadius.circular(30.0),
                 border: Border.all(
-                  color: Color.fromARGB(255, 196, 80, 191), // Cor da borda
-                  width: 3.0, // Largura da borda
+                  color: Color.fromARGB(255, 196, 80, 191),
+                  width: 3.0,
                 ),
               ),
               child: TextField(
+                controller: _loginController,
                 decoration: InputDecoration(
                   labelText: 'Login',
-                  contentPadding:
-                      EdgeInsets.all(16.0), // Espaçamento interno do TextField
-                  border:
-                      InputBorder.none, // Remove a borda padrão do TextField
+                  contentPadding: EdgeInsets.all(16.0),
+                  border: InputBorder.none,
                 ),
               ),
             ),
 
             // Campo de entrada para senha
             Container(
-              margin: EdgeInsets.symmetric(
-                  vertical: 10), // Espaçamento vertical entre os campos
+              margin: EdgeInsets.symmetric(vertical: 10),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30.0), // Borda arredondada
+                borderRadius: BorderRadius.circular(30.0),
                 border: Border.all(
-                  color: Color.fromARGB(255, 176, 52, 164), // Cor da borda
-                  width: 3.0, // Largura da borda
+                  color: Color.fromARGB(255, 176, 52, 164),
+                  width: 3.0,
                 ),
               ),
               child: TextField(
+                controller: _senhaController,
                 decoration: InputDecoration(
                   labelText: 'Senha',
-                  contentPadding:
-                      EdgeInsets.all(16.0), // Espaçamento interno do TextField
-                  border:
-                      InputBorder.none, // Remove a borda padrão do TextField
+                  contentPadding: EdgeInsets.all(16.0),
+                  border: InputBorder.none,
                 ),
-                obscureText: true, // Para esconder a senha
+                obscureText: true,
               ),
             ),
 
             // Botão para ir para a tela de Lista de Tarefas
             ElevatedButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ListaTarefas(
-                      listTarefas: [],
-                    ), // Passa uma lista vazia como exemplo
-                  ),
-                );
+                final login = _loginController.text;
+                final senha = _senhaController.text;
+
+                if (login.isEmpty || senha.isEmpty) {
+                  // Campos obrigatórios estão vazios
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text('Preencha todos os campos obrigatórios.'),
+                    ),
+                  );
+                } else {
+                  // Todos os campos estão preenchidos, navegue para a próxima tela
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ListaTarefas(
+                        listTarefas: [],
+                      ),
+                    ),
+                  );
+                }
               },
               child: Text('Login!'),
             ),
