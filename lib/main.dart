@@ -9,6 +9,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        // Define a cor de destaque do tema
+        textTheme: TextTheme(
+          bodyMedium: TextStyle(
+            fontFamily: 'Arial', // Define a fonte global como Arial
+            color: Colors.white, // Define a cor de texto global como branca
+          ),
+        ),
+      ),
       home: Login(),
     );
   }
