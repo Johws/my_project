@@ -19,13 +19,17 @@ class RemoverTarefaState extends State<RemoverTarefa> {
             style: TextStyle(color: Colors.white),
           ),
           backgroundColor: Colors.purple),
-      body: Container(
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-          begin: Alignment.bottomCenter,
-          end: Alignment.topCenter,
-          colors: [Colors.purple, Colors.black],
-        )),
+      body: Stack(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+              begin: Alignment.bottomCenter,
+              end: Alignment.topCenter,
+              colors: [Colors.purple, Colors.black],
+            )),
+          ),
+        ],
       ),
     );
   }
