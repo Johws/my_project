@@ -17,7 +17,10 @@ class ListaTarefasState extends State<ListaTarefas> {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.purple,
-          title: Text('Lista de Tarefas'),
+          title: Text(
+            'Lista de Tarefas',
+            style: TextStyle(color: Colors.white),
+          ),
           actions: <Widget>[
             IconButton(
               icon: Icon(Icons.add),
@@ -35,6 +38,7 @@ class ListaTarefasState extends State<ListaTarefas> {
                   });
                 }
               },
+              color: Colors.white,
             ),
             IconButton(
               icon: Icon(Icons.delete),
@@ -44,6 +48,7 @@ class ListaTarefasState extends State<ListaTarefas> {
                   MaterialPageRoute(builder: (context) => RemoverTarefa()),
                 );
               },
+              color: Colors.white,
             ),
           ],
         ),
@@ -58,26 +63,40 @@ class ListaTarefasState extends State<ListaTarefas> {
               )),
             ),
             Center(
-              child: widget.listTarefas.isEmpty
-                  ? Text('Nenhuma tarefa na lista')
-                  : ListView.builder(
-                      itemCount: widget.listTarefas.length,
-                      itemBuilder: (context, index) {
-                        return Container(
-                          margin: EdgeInsets.symmetric(vertical: 10),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30),
-                            border: Border.all(
-                              color: Colors.purple,
-                              width: 3,
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 30.0),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30.0),
+                  border: Border.all(
+                    color: Colors.purple,
+                    width: 3.0,
+                  ),
+                ),
+                child: widget.listTarefas.isEmpty
+                    ? Text(
+                        'Nenhuma tarefa na lista',
+                        style: TextStyle(color: Colors.white),
+                      )
+                    : ListView.builder(
+                        itemCount: widget.listTarefas.length,
+                        itemBuilder: (context, index) {
+                          return Container(
+                            margin: EdgeInsets.symmetric(vertical: 10),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30),
+                              border: Border.all(
+                                color: Colors.purple,
+                                width: 3,
+                              ),
                             ),
-                          ),
-                          child: ListTile(
-                            title: Text(widget.listTarefas[index]),
-                          ),
-                        );
-                      },
-                    ),
+                            child: ListTile(
+                              title: Text(widget.listTarefas[index]),
+                              textColor: Colors.white,
+                            ),
+                          );
+                        },
+                      ),
+              ),
             ),
           ],
         ));

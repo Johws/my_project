@@ -10,11 +10,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        // Define a cor de destaque do tema
         textTheme: TextTheme(
-          bodyMedium: TextStyle(
-            fontFamily: 'Arial', // Define a fonte global como Arial
-            color: Colors.white, // Define a cor de texto global como branca
+          bodyText1: TextStyle(
+            fontFamily: 'Arial',
+            color: Colors.purple,
+          ),
+        ),
+        inputDecorationTheme: InputDecorationTheme(
+          labelStyle: TextStyle(
+            color: Colors.purple,
           ),
         ),
       ),

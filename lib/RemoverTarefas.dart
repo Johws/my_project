@@ -14,10 +14,10 @@ class RemoverTarefaState extends State<RemoverTarefa> {
     return Scaffold(
       appBar: AppBar(
           elevation: 4,
-          title: Text('Remover Tarefa',
-              style: TextStyle(
-                fontFamily: 'Arial',
-              )),
+          title: Text(
+            'Remover Tarefa',
+            style: TextStyle(color: Colors.white),
+          ),
           backgroundColor: Colors.purple),
       body: Container(
         decoration: BoxDecoration(

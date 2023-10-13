@@ -8,31 +8,47 @@ class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.purple,
-          title: Text('Login'),
-        ),
-        body: Stack(
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                  gradient: LinearGradient(
+      appBar: AppBar(
+        backgroundColor: Colors.purple,
+        title: Text('Login'),
+      ),
+      body: Stack(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
                 begin: Alignment.bottomCenter,
                 end: Alignment.topCenter,
                 colors: [Colors.purple, Colors.black],
-              )),
+              ),
             ),
-            Center(
+          ),
+          Center(
+            child: Container(
+              width: 300, // Largura do contêiner branco
+              padding: EdgeInsets.all(20.0),
+              decoration: BoxDecoration(
+                color: Colors.white, // Cor de fundo branca
+                borderRadius: BorderRadius.circular(30.0),
+              ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   Container(
+                    padding: EdgeInsets.all(
+                        12.0), // Espaçamento interno para criar uma forma quadrada
+                    decoration: BoxDecoration(
+                      color: Colors.white, // Cor de fundo branca
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
                     child: Icon(
                       Icons.person,
                       size: 48.0,
-                      color: Colors.purpleAccent,
+                      color: Colors.purple,
                     ),
                   ),
+                  SizedBox(height: 10), // Espaçamento entre os elementos
                   // Campo de entrada para login
                   Container(
                     margin: EdgeInsets.symmetric(vertical: 10),
@@ -52,7 +68,7 @@ class Login extends StatelessWidget {
                       ),
                     ),
                   ),
-
+                  SizedBox(height: 10), // Espaçamento entre os elementos
                   // Campo de entrada para senha
                   Container(
                     margin: EdgeInsets.symmetric(vertical: 10),
@@ -73,7 +89,7 @@ class Login extends StatelessWidget {
                       obscureText: true,
                     ),
                   ),
-
+                  SizedBox(height: 20), // Espaçamento entre os elementos
                   // Botão para ir para a tela de Lista de Tarefas
                   ElevatedButton(
                     onPressed: () {
@@ -102,15 +118,22 @@ class Login extends StatelessWidget {
                     },
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all<Color>(
-                        Colors.purpleAccent,
+                        Color.fromARGB(255, 174, 19, 198),
                       ),
                     ),
-                    child: Text('Login!'),
+                    child: Text(
+                      'Login!',
+                      style: TextStyle(
+                        color: const Color.fromARGB(236, 255, 255, 255),
+                      ),
+                    ),
                   ),
                 ],
               ),
             ),
-          ],
-        ));
+          ),
+        ],
+      ),
+    );
   }
 }
