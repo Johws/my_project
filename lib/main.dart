@@ -9,6 +9,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        textTheme: TextTheme(
+          bodyText1: TextStyle(
+            fontFamily: 'Arial',
+            color: Colors.purple,
+          ),
+        ),
+        inputDecorationTheme: InputDecorationTheme(
+          labelStyle: TextStyle(
+            color: Colors.purple,
+          ),
+        ),
+      ),
       home: Login(),
     );
   }

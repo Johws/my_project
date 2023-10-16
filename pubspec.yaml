@@ -40,6 +40,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_svg: ^0.22.0
+  table_calendar: ^3.0.1 
   
 
   # The "flutter_lints" package below contains a set of recommended lints to
@@ -91,3 +92,5 @@ flutter:
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
   # Use a versão mais recente
+
+  
