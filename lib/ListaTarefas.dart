@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
-import 'AddTarefas.dart';
-import 'RemoverTarefas.dart';
+import 'package:my_project/AddTarefas.dart';
+import 'package:my_project/RemoverTarefas.dart';
 
 class ListaTarefas extends StatefulWidget {
-  final List<String> listTarefas;
+  final DateTime selectedDay;
 
-  ListaTarefas({required this.listTarefas});
+  ListaTarefas({required this.selectedDay, required List listTarefas});
 
   @override
   ListaTarefasState createState() => ListaTarefasState();
 }
 
 class ListaTarefasState extends State<ListaTarefas> {
+  List<String> listTarefas = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +36,7 @@ class ListaTarefasState extends State<ListaTarefas> {
 
               if (novaTarefa != null) {
                 setState(() {
-                  widget.listTarefas.add(novaTarefa);
+                  listTarefas.add(novaTarefa);
                 });
               }
             },
@@ -47,11 +49,11 @@ class ListaTarefasState extends State<ListaTarefas> {
                 context,
                 MaterialPageRoute(
                   builder: (context) => RemoverTarefas(
-                    listTarefas: widget.listTarefas,
+                    listTarefas: listTarefas,
                     atualizarListaTarefas: (novaLista) {
                       setState(() {
-                        widget.listTarefas.clear();
-                        widget.listTarefas.addAll(novaLista);
+                        listTarefas.clear();
+                        listTarefas.addAll(novaLista);
                       });
                     },
                   ),
@@ -83,13 +85,13 @@ class ListaTarefasState extends State<ListaTarefas> {
                   width: 3.0,
                 ),
               ),
-              child: widget.listTarefas.isEmpty
+              child: listTarefas.isEmpty
                   ? Text(
                       'Nenhuma tarefa na lista',
                       style: TextStyle(color: Colors.white),
                     )
                   : ListView.builder(
-                      itemCount: widget.listTarefas.length,
+                      itemCount: listTarefas.length,
                       itemBuilder: (context, index) {
                         return Container(
                           margin: EdgeInsets.symmetric(vertical: 10),
@@ -101,7 +103,7 @@ class ListaTarefasState extends State<ListaTarefas> {
                             ),
                           ),
                           child: ListTile(
-                            title: Text(widget.listTarefas[index]),
+                            title: Text(listTarefas[index]),
                             textColor: Colors.white,
                           ),
                         );

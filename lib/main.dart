@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_project/calendario1.dart';
 import 'package:my_project/login.dart';
 
 void main() {
@@ -22,7 +23,11 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: Login(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => Login(),
+        '/calendario': (context) => Calendario(),
+      },
     );
   }
 }

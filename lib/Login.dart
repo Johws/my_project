@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_project/ListaTarefas.dart';
 
 class Login extends StatelessWidget {
   final _loginController = TextEditingController();
@@ -25,10 +24,10 @@ class Login extends StatelessWidget {
           ),
           Center(
             child: Container(
-              width: 300, // Largura do contêiner branco
+              width: 300,
               padding: EdgeInsets.all(20.0),
               decoration: BoxDecoration(
-                color: Colors.white, // Cor de fundo branca
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(30.0),
               ),
               child: Column(
@@ -36,10 +35,9 @@ class Login extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   Container(
-                    padding: EdgeInsets.all(
-                        12.0), // Espaçamento interno para criar uma forma quadrada
+                    padding: EdgeInsets.all(12.0),
                     decoration: BoxDecoration(
-                      color: Colors.white, // Cor de fundo branca
+                      color: Colors.white,
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                     child: Icon(
@@ -48,8 +46,7 @@ class Login extends StatelessWidget {
                       color: Colors.purple,
                     ),
                   ),
-                  SizedBox(height: 10), // Espaçamento entre os elementos
-                  // Campo de entrada para login
+                  SizedBox(height: 10),
                   Container(
                     margin: EdgeInsets.symmetric(vertical: 10),
                     decoration: BoxDecoration(
@@ -68,8 +65,7 @@ class Login extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 10), // Espaçamento entre os elementos
-                  // Campo de entrada para senha
+                  SizedBox(height: 10),
                   Container(
                     margin: EdgeInsets.symmetric(vertical: 10),
                     decoration: BoxDecoration(
@@ -89,15 +85,13 @@ class Login extends StatelessWidget {
                       obscureText: true,
                     ),
                   ),
-                  SizedBox(height: 20), // Espaçamento entre os elementos
-                  // Botão para ir para a tela de Lista de Tarefas
+                  SizedBox(height: 20),
                   ElevatedButton(
                     onPressed: () {
                       final login = _loginController.text;
                       final senha = _senhaController.text;
 
                       if (login.isEmpty || senha.isEmpty) {
-                        // Campos obrigatórios estão vazios
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                             content:
@@ -105,15 +99,7 @@ class Login extends StatelessWidget {
                           ),
                         );
                       } else {
-                        // Todos os campos estão preenchidos, navegue para a próxima tela
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => ListaTarefas(
-                              listTarefas: [],
-                            ),
-                          ),
-                        );
+                        Navigator.pushNamed(context, '/calendario');
                       }
                     },
                     style: ButtonStyle(
