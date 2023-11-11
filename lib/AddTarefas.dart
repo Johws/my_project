@@ -32,7 +32,7 @@ class AddTarefasState extends State<AddTarefas> {
           ),
           Center(
             child: Container(
-              width: 400,
+              width: 350,
               height: 350,
               padding: EdgeInsets.all(10.0),
               decoration: BoxDecoration(
